@@ -2,9 +2,11 @@ import React from 'react'
 
 const Table = ({ values }) => (
   <table>
-    {
-      values.map(val => <tr><th>{val}</th></tr>)
-    }
+    <tbody>
+      {
+        values.map(val => <tr key={val}><th>{val}</th></tr>)
+      }
+    </tbody>
   </table>
 )
 

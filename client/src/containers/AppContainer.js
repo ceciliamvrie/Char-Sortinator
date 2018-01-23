@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import App from '../components/App'
 
 class AppContainer extends Component {
@@ -9,8 +10,13 @@ class AppContainer extends Component {
 
   onValueSubmit(e, val) {
     e.preventDefault()
-    const sortedVal = this.sortValueLexically(val)
-    this.setState({ sortedValues: this.state.sortedValues.concat(sortedVal) })
+    this.postValue(val)
+    this.setState({ sortedValues: this.state.sortedValues.concat(this.sortValueLexically(val)) })
+  }
+
+  postValue(val) {
+    const unsorted = { string: val }
+    axios.post('http://localhost:3001/api/sort', unsorted)
   }
 
   sortValueLexically(str) {
