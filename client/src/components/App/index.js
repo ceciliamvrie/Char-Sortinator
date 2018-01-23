@@ -4,7 +4,7 @@ import Table from '../Table'
 import './App.css'
 
 const App = ({ values, onSubmit }) => (
-  <div>
+  <div className="App">
     <FormContainer onSubmit={onSubmit}/>
     <Table values={values} />
   </div>
